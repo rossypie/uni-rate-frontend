@@ -1,3 +1,3 @@
 # frontend uni-rate
 
-- [ ] Mantine ui
+- [x] Mantine ui
