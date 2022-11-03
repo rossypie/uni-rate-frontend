@@ -1,4 +1,4 @@
-export interface UniList{
+export interface UniListObject{
   name : string,
   type : string ,
   city : string ,
@@ -11,5 +11,5 @@ export interface ResData {
   status: Number,
   success: boolean,
   message: string,
-  data: UniList[]
+  data: UniListObject[]
 }
