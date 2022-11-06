@@ -1,6 +1,9 @@
 
 import { Link } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from "react-router-dom";
+
+import AccountButton from "../../components/AccountButton";
 
 import {
   createStyles,
@@ -88,7 +91,12 @@ export function HeaderMegaMenu() {
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const { classes, theme } = useStyles();
   const [logged, setLogged] = useState(false);
+  const location = useLocation();
 
+  useEffect(()=>{
+    if(localStorage.getItem('auth_token'))
+      setLogged(true);
+  }, [location])
 
   return (
     <Box pb={120}>
@@ -160,7 +168,7 @@ export function HeaderMegaMenu() {
           }
           {logged && 
             <>
-              <Button>Account</Button>
+              <AccountButton text={'Account'} setLogged={setLogged}/>
             </>
           }
           </Group>
