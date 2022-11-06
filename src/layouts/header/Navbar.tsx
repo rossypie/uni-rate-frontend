@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
 
 import AccountButton from "../../components/AccountButton";
+import DarkModeButton from "../../components/DarkModeButton";
 
 import {
   createStyles,
@@ -171,6 +172,7 @@ export function HeaderMegaMenu() {
               <AccountButton text={'Account'} setLogged={setLogged}/>
             </>
           }
+          <DarkModeButton />
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} className={classes.hiddenDesktop} />
