@@ -1,4 +1,40 @@
-.text-input{
-  margin-top: 10px;
-  margin-bottom: 10px;
+.auth{
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  -webkit-transform: translate(-50%, -40%);
+  transform: translate(-50%, -40%);
+  .wrapper{
+    width:545px;
+    height:360px;
+    margin-right: 20px;
+    margin-left:20px;
+    text-align:center;
+    padding: 50px;
+  }
+  .text-input{
+    margin-top: 20px;
+    border: 1px solid #E5E5E5;
+    border-radius: 12px;
+    input::placeholder{
+      color: #484848;
+      font-size: 12px;
+    }
+  }
+  .info-text{
+    color : #8E8E8E;
+    font-size: 13px;
+  }
+  .submit-button{
+    background-color: #228be6;
+    margin-top: 30px;
+    min-height: 45px;
+    width: 100%;
+    font-size: 12px;
+    border-radius: 12px;
+    &.disabled{
+      background-color: #228be68c;
+      color: white;
+    }
+  }
 }

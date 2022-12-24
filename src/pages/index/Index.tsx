@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 import SearchBar from "../../components/SearchBar";
+import { HeaderMegaMenu } from '../../layouts/header/Navbar';
 
 
 const Index = () => {
@@ -24,6 +25,7 @@ const Index = () => {
 
   return (
     <>
+    <HeaderMegaMenu />
     <Container size="sm" px="sm">
         
       <SearchBar data={[]} placeholder={"Üniversite Adı"} label={"Arama"} />

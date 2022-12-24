@@ -1,15 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { PasswordInput } from '@mantine/core';
-import { TextInput } from '@mantine/core';
+import { PasswordInput, Paper, TextInput, Button, Loader, Text, Title, Container } from '@mantine/core';
 import { IconUser, IconLock } from '@tabler/icons';
-import { Button } from '@mantine/core';
-import { Loader } from '@mantine/core';
 
 
 export function LoginForm(){
+
   let navigate = useNavigate();
   const [username, setUsername] = React.useState("")
   const [pass, setPass] = React.useState("")
@@ -43,39 +41,53 @@ export function LoginForm(){
 
   return(
     <>
-      <TextInput
-        icon={<IconUser size={16} />}
-        placeholder="Your username"
-        label="Username"
-        className='text-input'
-        withAsterisk
-        value={username}
-        onChange={(e)=>setUsername(e.currentTarget.value)}
-      />
-      <PasswordInput
-        label="Password"
-        placeholder="Your password"
-        icon={<IconLock size={16} />}
-        className='text-input'
-        withAsterisk
-        value={pass}
-        onChange={(e)=>setPass(e.currentTarget.value)}
-      />
-      {!reloading && !isOk && 
-        <Button disabled>
-          Login  
-        </Button>
-      }
-      {!reloading && isOk &&
-        <Button onClick={sendRequest}>
-          Login  
-        </Button>
-      }
-      {reloading && isOk &&
-        <Button loading>
-          Login
-        </Button>
-      }
+      
+    <div className='auth'>
+      <Container style={{textAlign:'center'}}>
+        <Paper shadow="xs" radius="lg" p="xl" className='wrapper'>
+          <h2 style={{color:"#228be6"}}>Welcome Back</h2>
+          <Text className='info-text' style={{marginBottom:20, marginTop:5}}>Please input your Login details to gain access.</Text>
+          <TextInput
+            icon={<IconUser size={16} color={"#228be6"} />}
+            placeholder="Your username"
+            label=""
+            className='text-input'
+            withAsterisk
+            value={username}
+            variant="unstyled"
+            size='md'
+            onChange={(e)=>setUsername(e.currentTarget.value)}
+            />
+          <PasswordInput
+            label=""
+            placeholder="Your password"
+            icon={<IconLock size={16} color={"#228be6"}/>}
+            variant="unstyled"
+            size='md'
+            className='text-input'
+            withAsterisk
+            value={pass}
+            onChange={(e)=>setPass(e.currentTarget.value)}
+            />
+          {!reloading && !isOk && 
+            <Button className='submit-button disabled' disabled>
+              Log in  
+            </Button>
+          }
+          {!reloading && isOk &&
+            <Button onClick={sendRequest} className='submit-button'>
+              Log in  
+            </Button>
+          }
+          {reloading && isOk &&
+            <Button loading className='submit-button'>
+            </Button>
+          }
+        </Paper>
+        {/* <Text className='footer-password'>Forgot your password?  <Link to={"/"}>Reset Password</Link></Text> */}
+      </Container>
+
+    </div>
     </>
   )
 }

@@ -15,7 +15,10 @@ const Base = () => {
       <MantineProvider
         withGlobalStyles
         withNormalizeCSS
-        theme={{ colorScheme }}
+        theme={{ 
+          colorScheme,
+          fontFamily: 'Poppins, sans-serif',
+        }}
         >
         <App />
       </MantineProvider>
