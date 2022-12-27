@@ -1,39 +1,48 @@
 .auth{
-  position: absolute;
-  left: 50%;
-  top: 40%;
-  -webkit-transform: translate(-50%, -40%);
-  transform: translate(-50%, -40%);
   .wrapper{
-    width:545px;
-    height:360px;
-    margin-right: 20px;
-    margin-left:20px;
-    text-align:center;
-    padding: 50px;
+    $wrapper-padding: 40px;
+    padding: $wrapper-padding;
+    padding-bottom: $wrapper-padding * 1.5;
+    padding-top: $wrapper-padding / 2;
   }
   .text-input{
     margin-top: 20px;
-    border: 1px solid #E5E5E5;
-    border-radius: 12px;
-    input::placeholder{
+    input{
       color: #484848;
-      font-size: 12px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+    input::placeholder{
+      color: #b1b1b1;
+      font-size: 13px;
+      font-weight: 100;
     }
   }
   .info-text{
-    color : #8E8E8E;
+    margin-top: 5px;
+    color : #838383;
     font-size: 13px;
+  }
+  .forgot-password{
+    margin-top: 20px;
+    a{
+      color: #067be2;
+    }
+  }
+  .error-text{
+    color: #fb133a;
+    margin-bottom: -15px;
+    margin-left: 10px;
   }
   .submit-button{
     background-color: #228be6;
     margin-top: 30px;
     min-height: 45px;
     width: 100%;
-    font-size: 12px;
-    border-radius: 12px;
+    font-size: 13px;
+    border-radius: 100px;
     &.disabled{
-      background-color: #228be68c;
+      background-color: #228be6;
       color: white;
     }
   }

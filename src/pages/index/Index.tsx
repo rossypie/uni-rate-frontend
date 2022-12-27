@@ -2,9 +2,9 @@ import { Container } from '@mantine/core';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-import SearchBar from "../../components/SearchBar";
-import { HeaderMegaMenu } from '../../layouts/header/Navbar';
 
+import { HeaderMegaMenu } from '../../layouts/header/Navbar';
+import SearchBar from '../../components/SearchBar';
 
 const Index = () => {
   const [searchData, setSearchData] = useState<string[]>([])
@@ -27,9 +27,7 @@ const Index = () => {
     <>
     <HeaderMegaMenu />
     <Container size="sm" px="sm">
-        
       <SearchBar data={[]} placeholder={"Üniversite Adı"} label={"Arama"} />
-
     </Container>
     </>
   );
