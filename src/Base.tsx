@@ -20,7 +20,7 @@ const Base = () => {
           fontFamily: 'Poppins, sans-serif',
         }}
         >
-        <App />
+          <App />
       </MantineProvider>
     </ColorSchemeProvider>
   );

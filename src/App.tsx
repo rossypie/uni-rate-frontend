@@ -10,7 +10,7 @@ import './assets/scss/main.scss';
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         {/* <HealthCheck /> */}
           <Routes>
             <Route path="/" element={<IndexPage />} />
