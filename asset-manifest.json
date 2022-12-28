@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/uni-rate-frontend/static/css/main.8d79218f.css",
+    "main.js": "/uni-rate-frontend/static/js/main.c1b2d407.js",
+    "index.html": "/uni-rate-frontend/index.html",
+    "main.8d79218f.css.map": "/uni-rate-frontend/static/css/main.8d79218f.css.map",
+    "main.c1b2d407.js.map": "/uni-rate-frontend/static/js/main.c1b2d407.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d79218f.css",
+    "static/js/main.c1b2d407.js"
+  ]
+}
