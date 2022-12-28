@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import AccountButton from "../../components/AccountButton";
 import DarkModeButton from "../../components/DarkModeButton";
 import { LoginForm } from "../../components/LoginForm";
+import { SignUpForm } from "../../components/SignupForm";
 
 import {
   createStyles,
@@ -94,24 +95,27 @@ export function HeaderMegaMenu() {
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const { classes, theme } = useStyles();
   const [logged, setLogged] = useState(false);
+  const [openedRegistration, setOpenedRegistration] = useState<boolean>(false);
   const [openedLogin, setOpenedLogin] = useState<boolean>(false);
+  const [openedSignup, setOpenedSignup] = useState<boolean>(false);
   const location = useLocation();
 
   useEffect(()=>{
     if(localStorage.getItem('auth_token'))
       setLogged(true);
-  }, [openedLogin])
+  }, [openedRegistration])
 
   return (
     <>
       <Modal
-        opened={openedLogin}
-        onClose={() => setOpenedLogin(false)}
+        opened={openedRegistration}
+        onClose={() => {setOpenedRegistration(false); setOpenedLogin(false); setOpenedSignup(false);}}
         size="sm"
         centered
         className="auth"
       >
-        <LoginForm setOpenedLogin={setOpenedLogin} />
+        {openedLogin && <LoginForm setOpenedLogin={setOpenedLogin} setOpenedSignup={setOpenedSignup} setOpenedRegistration={setOpenedRegistration} />}
+        {openedSignup && <SignUpForm setOpenedLogin={setOpenedLogin} setOpenedSignup={setOpenedSignup} setOpenedRegistration={setOpenedRegistration}/> }
       </Modal>
       <Box pb={120}>
         <Header height={60} px="md">
@@ -126,8 +130,8 @@ export function HeaderMegaMenu() {
             <Group className={classes.hiddenMobile}>
             {!logged && 
               <>
-                <Button variant="default" onClick={() => {setOpenedLogin(true); closeDrawer();}}>Log in</Button>
-                <Button>Sign up</Button>
+                <Button variant="default" onClick={() => {setOpenedRegistration(true); setOpenedLogin(true); closeDrawer();}}>Log in</Button>
+                <Button onClick={() => {setOpenedRegistration(true); setOpenedSignup(true); closeDrawer();}}>Sign up</Button>
               </>
             }
             {logged && 
@@ -177,8 +181,8 @@ export function HeaderMegaMenu() {
             <Group position="center" grow pb="xl" px="md">
               {!logged && 
               <>
-                <Button variant="default" onClick={() => {setOpenedLogin(true); closeDrawer();}}>Log in</Button>
-                <Button>Sign up</Button>
+                <Button variant="default" onClick={() => {setOpenedRegistration(true); setOpenedLogin(true); closeDrawer();}}>Log in</Button>
+                <Button onClick={() => {setOpenedRegistration(true); setOpenedSignup(true); closeDrawer();}}>Sign up</Button>
               </>
               }
               {logged &&

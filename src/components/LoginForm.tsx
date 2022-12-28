@@ -10,6 +10,8 @@ import { useForm } from '@mantine/form';
 
 interface LoginFormProps{
   setOpenedLogin:(value: React.SetStateAction<boolean>) => void,
+  setOpenedSignup:(value: React.SetStateAction<boolean>) => void,
+  setOpenedRegistration:(value: React.SetStateAction<boolean>) => void,
 }
 
 export function LoginForm(props:LoginFormProps){
@@ -49,6 +51,8 @@ export function LoginForm(props:LoginFormProps){
       if(res.status == 200){
         localStorage.setItem('auth_token', res.data.data.token)
         props.setOpenedLogin(false);
+        props.setOpenedRegistration(false);
+        props.setOpenedSignup(false);
       }
       setReloading(false)
     })
@@ -70,7 +74,6 @@ export function LoginForm(props:LoginFormProps){
               placeholder="Your email"
               label=""
               className='text-input'
-              withAsterisk
               value={email}
               variant="filled"
               radius="xl"
@@ -90,7 +93,6 @@ export function LoginForm(props:LoginFormProps){
               radius="xl"
               size='md'
               className='text-input'
-              withAsterisk
               required
               value={pass}
               onChange={(e)=>{setPass(e.currentTarget.value); setIsError(false); setLoginError("")}}
@@ -112,7 +114,18 @@ export function LoginForm(props:LoginFormProps){
             </Button>
           }
           </form>
-          <Text className='info-text forgot-password'>New to here? <a href="#">Register</a></Text>
+          <Text className='info-text forgot-password'>
+            New to here?{'\u00A0'}
+            <a href="#" 
+              onClick={(e)=> {
+                e.preventDefault(); 
+                props.setOpenedLogin(false); 
+                props.setOpenedSignup(true);
+              }}
+            >
+              Sign up
+            </a>
+            </Text>
       </Container>
     </>
   )
