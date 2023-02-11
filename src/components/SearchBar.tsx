@@ -1,8 +1,10 @@
 import { Autocomplete } from '@mantine/core';
 import { IconSearch } from "@tabler/icons";
 
+import { UniListItem } from '../types/Responses';
+
 interface SearchBarProps{
-  data: string[]
+  data: UniListItem[] | []
   placeholder: string
   label: string
 }
@@ -14,7 +16,7 @@ const SearchBar = (props:SearchBarProps) => {
       label={props.label}
       radius="xl"
       size="md"
-      data={props.data}
+      data={props.data.map(function (item) { return item?.name; })}
       icon={<IconSearch/>}
     />
   );
