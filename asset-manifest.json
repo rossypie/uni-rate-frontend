@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/uni-rate-frontend/static/css/main.8d79218f.css",
-    "main.js": "/uni-rate-frontend/static/js/main.620a4d0d.js",
+    "main.css": "/uni-rate-frontend/static/css/main.a2357607.css",
+    "main.js": "/uni-rate-frontend/static/js/main.df8427e6.js",
     "index.html": "/uni-rate-frontend/index.html",
-    "main.8d79218f.css.map": "/uni-rate-frontend/static/css/main.8d79218f.css.map",
-    "main.620a4d0d.js.map": "/uni-rate-frontend/static/js/main.620a4d0d.js.map"
+    "main.a2357607.css.map": "/uni-rate-frontend/static/css/main.a2357607.css.map",
+    "main.df8427e6.js.map": "/uni-rate-frontend/static/js/main.df8427e6.js.map"
   },
   "entrypoints": [
-    "static/css/main.8d79218f.css",
-    "static/js/main.620a4d0d.js"
+    "static/css/main.a2357607.css",
+    "static/js/main.df8427e6.js"
   ]
 }
